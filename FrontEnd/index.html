@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>TreeTable Demo with Vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Custom Directory Tree</h1>
+
+        <div class="input-group">
+            <select id="select_test_case" class="form-select">
+                <option>(Select a Test Case)</option>
+                <option value="1">Test Case 1: directoryToTree('dummy_dir/a_dir', 5)</option>
+                <option value="2">Test Case 2: directoryToTree('dummy_dir', 5)</option>
+                <option value="3">Test Case 3: directoryToTree('dummy_dir', 1)</option>
+                <option value="4">Test Case 4: directoryToTree('dummy_dir', 0)</option>
+                <option value="5">Test Case 5: directoryToTree('linux-distros', 0)</option>
+                <option value="6">Test Case 6: directoryToTree('linux-distros', 1)</option>
+                <option value="7">Test Case 7: directoryToTree('linux-distros', 2)</option>
+                <option value="8">Test Case 8: directoryToTree('linux-distros', 3)</option>
+            </select>
+            
+            <button onClick="runTestCase(select_test_case.value)" class="btn btn-primary">BUSCAR</button>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <tree-table :data="treeData"></tree-table>
+
+            </div>
+            <div class="col-md-6">
+                
+                <div class="card" id="cardElementoSeleccionado" style="display: none;">
+                    <div class="card-header">
+                      Elemento Seleccionado
+                    </div>
+                    <div class="card-body">
+                      
+                        <label>Path:</label>
+                        <label id="pathLabel"></label>
+                        <br>
+                        <label>Name:</label>
+                        <label id="nameLabel"></label>
+                        <br>
+                        <label>Type:</label>
+                        <label id="typeLabel"></label>
+                        <br>
+                        <label>Size:</label>
+                        <label id="sizeLabel"></label>
+        
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
